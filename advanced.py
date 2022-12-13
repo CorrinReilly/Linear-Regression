@@ -4,7 +4,6 @@ Python file for running an advanced linear regression on a dataset from CSV.
 import math
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.express as px
 
 
