@@ -1,5 +1,5 @@
 """
-Python file for running a basic linear regression on a dataset from CSV.
+Python file for creating a plot for a basic linear regression from a supplied CSV dataset.
 """
 import matplotlib.pyplot as plt
 import pandas as pd

@@ -1,5 +1,6 @@
 """
 Python file for running an advanced linear regression on a dataset from CSV.
+This returns the gradient and constant for the model: y = mx + c.
 """
 import math
 import numpy as np
