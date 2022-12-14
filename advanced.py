@@ -151,6 +151,7 @@ def run_training(x, y, iterations, alpha):
 # Run the training.
 m, c, costs = run_training(x_train_norm, y_train, 20000, 0.01)
 print('m, c found by gradient descent: ', m, c)
+print(f'Linear Approximation for f(x) = %sx + %s' % (m, c))
 
 # Plot the Cost v Iteration.
 fig = px.line(y=costs, title='Cost v Iteration', template='plotly_dark')
