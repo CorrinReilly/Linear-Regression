@@ -1,6 +1,6 @@
 """
 Python file for running an advanced linear regression on a dataset from CSV.
-This returns the gradient and constant for the model: y = mx + c.
+This returns the cost vs. iteration graphically as well as the cost value for the regression.
 """
 import math
 import numpy as np
@@ -100,7 +100,7 @@ def gradient_descent_calculation(x, y, m, c):
     :return:
     """
     # Number of samples.
-    n = len(x)
+    n: int = len(x)
 
     # Get predicted value.
     predicted_value = prediction(x, m, c)
@@ -132,8 +132,8 @@ def run_training(x, y, iterations, alpha):
         dm, dc = gradient_descent_calculation(x, y, m, c)
 
         # Set parameters using gradients and alpha.
-        m = m - (alpha * dm)
-        c = c - (alpha * dc)
+        m = m - alpha * dm
+        c = c - alpha * dc
 
         # Calculate the cost.
         calculated_cost = calculate_cost(x, y, m, c)
@@ -151,7 +151,6 @@ def run_training(x, y, iterations, alpha):
 # Run the training.
 m, c, costs = run_training(x_train_norm, y_train, 20000, 0.01)
 print('m, c found by gradient descent: ', m, c)
-print(f'Linear Approximation for f(x) = %sx + %s' % (m, c))
 
 # Plot the Cost v Iteration.
 fig = px.line(y=costs, title='Cost v Iteration', template='plotly_dark')
@@ -163,4 +162,5 @@ fig.update_layout(
 fig.show()
 
 # Evaluate results using the test set.
-calculate_cost(x_test_norm, y_test, m, c)
+cost = calculate_cost(x_test_norm, y_test, m, c)
+print("Cost: %s" % cost)
